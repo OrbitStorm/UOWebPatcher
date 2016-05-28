@@ -19,9 +19,6 @@ namespace ReduxLauncher.Modules
         {
             InitializeComponent();
 
-            Main_action_btn.Enabled = false;
-            Main_action_btn.Text = "Please Wait..";
-
             handler = new PatchHandler(this);
 
             progressBar.Style = ProgressBarStyle.Blocks;
@@ -30,11 +27,10 @@ namespace ReduxLauncher.Modules
             try
             {
                 Background.Load(PatchData.BackgroundURL);
-                UpdateText.Text = handler.UpdateNotes();
             }
             catch { } /// Incase background can't load from url.
-            UpdateText.SelectionStart = UpdateText.Text.Length;
-            UpdateText.ScrollToCaret();
+                      /// 
+            Main_Action();
         }
 
         internal void UpdatePercentage(int i)
@@ -124,8 +120,6 @@ namespace ReduxLauncher.Modules
             {
                 Invoke(new MethodInvoker(delegate
                 {
-                    Main_action_btn.Enabled = true;
-                    Main_action_btn.Text = "Launch";
                     ProgressBar().Value = ProgressBar().Maximum;
 
                     file_name_lbl.Visible = false;
@@ -135,10 +129,6 @@ namespace ReduxLauncher.Modules
 
             else
             {
-                Main_action_btn.Enabled = true;
-                Main_action_btn.Text = "Launch";
-                ProgressBar().Value = ProgressBar().Maximum;
-
                 file_name_lbl.Visible = false;
                 percentage_lbl.Visible = false;
             }
@@ -150,16 +140,12 @@ namespace ReduxLauncher.Modules
             {
                 Invoke(new MethodInvoker(delegate
                 {
-                    Main_action_btn.Enabled = true;
-                    Main_action_btn.Text = "Patch Files";
                     ProgressBar().Value = ProgressBar().Minimum;
                 }));
             }
 
             else
             {
-                Main_action_btn.Enabled = true;
-                Main_action_btn.Text = "Patch Files";
                 ProgressBar().Value = ProgressBar().Minimum;
             }
         }
@@ -170,16 +156,12 @@ namespace ReduxLauncher.Modules
             {
                 Invoke(new MethodInvoker(delegate
                 {
-                    Main_action_btn.Enabled = true;
-                    Main_action_btn.Text = "Install Redux";
                     ProgressBar().Value = ProgressBar().Minimum;
                 }));
             }
 
             else
             {
-                Main_action_btn.Enabled = true;
-                Main_action_btn.Text = "Install Redux";
                 ProgressBar().Value = ProgressBar().Minimum;
             }
         }
@@ -247,20 +229,11 @@ namespace ReduxLauncher.Modules
             }
         }
 
-        private void Main_action_btn_Click(object sender, EventArgs e)
+        internal void Main_Action()
         {
             if (handler.isReady == false)
             {
-                Main_action_btn.Enabled = false;
-
-                Main_action_btn.Text = "Waiting..";
-
-                if (handler.InitialDownload())
-                    MessageBox.Show("The initial installation may take a while.");
-
                 Task.Factory.StartNew(InitializeDownload);
-
-                Main_action_btn.Text = "Downloading..";
             }
 
             else if (handler.isReady)

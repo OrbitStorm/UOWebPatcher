@@ -30,10 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatcherInterface));
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.Main_action_btn = new System.Windows.Forms.Button();
             this.file_name_lbl = new System.Windows.Forms.Label();
             this.percentage_lbl = new System.Windows.Forms.Label();
-            this.UpdateText = new System.Windows.Forms.RichTextBox();
             this.Background = new System.Windows.Forms.PictureBox();
             this.RazorImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Background)).BeginInit();
@@ -48,20 +46,6 @@
             this.progressBar.Size = new System.Drawing.Size(555, 14);
             this.progressBar.TabIndex = 0;
             this.progressBar.UseWaitCursor = true;
-            // 
-            // Main_action_btn
-            // 
-            this.Main_action_btn.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-            this.Main_action_btn.BackColor = System.Drawing.Color.Gray;
-            this.Main_action_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Main_action_btn.ForeColor = System.Drawing.Color.Black;
-            this.Main_action_btn.Location = new System.Drawing.Point(8, 633);
-            this.Main_action_btn.Name = "Main_action_btn";
-            this.Main_action_btn.Size = new System.Drawing.Size(555, 41);
-            this.Main_action_btn.TabIndex = 3;
-            this.Main_action_btn.Text = "Download";
-            this.Main_action_btn.UseVisualStyleBackColor = false;
-            this.Main_action_btn.Click += new System.EventHandler(this.Main_action_btn_Click);
             // 
             // file_name_lbl
             // 
@@ -92,18 +76,6 @@
             this.percentage_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.percentage_lbl.Visible = false;
             // 
-            // UpdateText
-            // 
-            this.UpdateText.BackColor = System.Drawing.Color.Black;
-            this.UpdateText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateText.ForeColor = System.Drawing.Color.White;
-            this.UpdateText.Location = new System.Drawing.Point(8, 558);
-            this.UpdateText.Name = "UpdateText";
-            this.UpdateText.Size = new System.Drawing.Size(555, 69);
-            this.UpdateText.TabIndex = 8;
-            this.UpdateText.Text = "";
-            this.UpdateText.TextChanged += new System.EventHandler(this.UpdateText_TextChanged);
-            // 
             // Background
             // 
             this.Background.Location = new System.Drawing.Point(8, 6);
@@ -127,18 +99,15 @@
             // 
             // PatcherInterface
             // 
-            this.AcceptButton = this.Main_action_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(571, 683);
+            this.ClientSize = new System.Drawing.Size(571, 556);
             this.Controls.Add(this.RazorImg);
-            this.Controls.Add(this.UpdateText);
             this.Controls.Add(this.percentage_lbl);
             this.Controls.Add(this.file_name_lbl);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.Main_action_btn);
             this.Controls.Add(this.Background);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -159,11 +128,9 @@
         #endregion
 
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Button Main_action_btn;
         private System.Windows.Forms.PictureBox Background;
         private System.Windows.Forms.Label file_name_lbl;
         private System.Windows.Forms.Label percentage_lbl;
-        private System.Windows.Forms.RichTextBox UpdateText;
         private System.Windows.Forms.PictureBox RazorImg;
     }
 }

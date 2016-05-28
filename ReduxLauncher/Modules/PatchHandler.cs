@@ -360,6 +360,7 @@ namespace ReduxLauncher.Modules
 
             UI.ReadyLaunch();
             isReady = true;
+            UI.Main_Action();
         }
 
         WebDirectory GenerateDirectory(string url)
@@ -501,8 +502,8 @@ namespace ReduxLauncher.Modules
                         while (!endMet)
                         {
                             line = reader.ReadLine();
-                            if (line != null && line != "" && line.IndexOf("</a>") >= 0)
-                            //if (line != null && line != "" && line.Contains("</A>"))
+                            //if (line != null && line != "" && line.IndexOf("</a>") >= 0)
+                            if (line != null && line != "" && line.Contains("</A>"))
                             {
                                 if (line.Contains("</html>")) endMet = true;
                                 string[] segments = line.Replace("\\", "").Split('\"');
